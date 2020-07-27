@@ -1,0 +1,84 @@
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - bot_challenge
+  - inform
+  - search_provider
+  - grocery_provider
+  - inform_milk
+  - quantity
+
+entities:
+  - location
+  - facility_type
+  - grocery_type
+  - milk_type
+  - milk_qty
+
+slots:
+  location:
+    type: text
+  facility_type:
+    type: text
+  address:
+    type: unfeaturized
+  grocery_type:
+    type: text
+  milk_type:
+    type: text
+  testvar:
+    type: unfeaturized
+  milk_qty:
+    type: text
+
+actions:
+  - utter_greet
+  - utter_how_can_i_help
+  - action_facility_search
+  - utter_ask_location
+  - utter_goodbye
+  - utter_did_that_help
+  - utter_iamabot
+  - utter_varieties_milk
+  - utter_checkout
+  - utter_quantity
+  - action_price
+
+responses:
+  utter_greet:
+  - text: "Hi there! What are you looking for? "
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_how_can_i_help:
+  - text: "Hello. I am a medicare locator. I can find u nearest hospital"
+  - text: "Hi. My name is medicare locator. how can i help"
+
+  utter_ask_location:
+  #- text: "Can you provide the location"  
+  - text: "To find the nearest {facility_type}, you must provide the location"
+
+  utter_varieties_milk:
+  - text: "Sure, We have 3 varieties of milk 
+           1. Organic 2$
+           2. Fatfree 3$
+           3. Whole 4$" 
+
+  utter_checkout:
+  - text: "Do you want to checkout?"
+
+  utter_quantity:
+  - text: "How many units do you need?"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
